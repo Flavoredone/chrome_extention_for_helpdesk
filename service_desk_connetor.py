@@ -1,0 +1,101 @@
+import json
+import requests
+
+api_key = "F0EEED2D-254E-4202-A539-BD8860461417"
+url = "http://192.168.91.235/sdpapi/request"
+
+
+def send_post(params, input_data, request_id=None):
+    input_data_json = json.dumps(input_data)
+    try:
+        if not request_id:
+            response = requests.post(url, params=params, data={'INPUT_DATA': input_data_json})
+        else:
+            response = requests.post(f"{url}/{request_id}", data={'INPUT_DATA': input_data_json}, params=params)
+
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP ошибка: {http_err}")
+        return None
+    except requests.exceptions.RequestException as req_err:
+        print(f"Ошибка запроса: {req_err}")
+        return None
+    except json.JSONDecodeError as json_err:
+        print(f"Ошибка парсинга JSON: {json_err}")
+        return None
+
+
+def get_all_req_for(view_id):
+    """
+    233170_MyView - axapta_andreev
+    233172_MyView - axapta_dev_andreev
+    233173_MyView - bs_andreev
+    233175_MyView - bs_dev_andreev
+    """
+    params = {
+        "OPERATION_NAME": "GET_REQUESTS",
+        "TECHNICIAN_KEY": api_key,
+        "format": "json"
+    }
+    input_data = {
+        "operation": {
+            "details": {
+                "from": 0,
+                "limit": 500,
+                "filterby": view_id
+            }
+        }
+    }
+    response_data = send_post(params, input_data)
+    requests_list = response_data.get("operation", {}).get("details", [])
+    count = 0
+    for request in requests_list:
+        workorder_id = request.get("WORKORDERID")
+        if workorder_id:
+            print("WORKORDERID:", workorder_id)
+            count += 1
+
+    print(f"Всего заявок: {count}")
+
+
+def get_req_info(req_id):
+    params = {
+        "TECHNICIAN_KEY": api_key,
+        "format": "json",
+        "OPERATION_NAME": "GET_REQUEST",
+    }
+
+    response_data = send_post(params, None, request_id=req_id)
+
+    return response_data
+
+
+class RequestUpdater:
+    def __init__(self):
+        self.api_key = api_key
+        self.params = {
+            "TECHNICIAN_KEY": api_key,
+            "format": "json",
+            "OPERATION_NAME": "EDIT_REQUEST",
+        }
+
+    def change_technician(self, req_id, technician):
+        input_data = {
+            "operation": {
+                "details": {
+                    "TECHNICIAN": technician
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
+
+    def change_status(self, req_id, status):
+        input_data = {
+            "operation": {
+                "details": {
+                    "status": status
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)

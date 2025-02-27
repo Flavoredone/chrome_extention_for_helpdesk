@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "SD Portal Helper",
+  "version": "1.0",
+  "permissions": ["activeTab", "storage", "tabs"],
+  "host_permissions": ["http://localhost:5000/*"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
