@@ -8,5 +8,6 @@
 ![image](https://github.com/user-attachments/assets/ed45dad1-8688-4f74-ae5e-251e714feb13)
 
 4. Выглядит сама морда вот так:
+
 ![image](https://github.com/user-attachments/assets/2bf26028-613f-4cbe-bd37-1c40fe7bba75)
 
