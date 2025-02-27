@@ -9,5 +9,5 @@
 
 4. Выглядит сама морда вот так:
 
-![image](https://github.com/user-attachments/assets/2bf26028-613f-4cbe-bd37-1c40fe7bba75)
+![image](https://github.com/user-attachments/assets/eb3b92c1-a7cb-4eee-a45b-6bc791013178)
 
