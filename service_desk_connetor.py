@@ -1,9 +1,10 @@
 import json
 import requests
 
-api_key = "--------------------------------"
+api_key = "F0EEED2D-254E-4202-A539-BD8860461417"
 url = "http://192.168.91.235/sdpapi/request"
 
+# 411755
 
 def send_post(params, input_data, request_id=None):
     input_data_json = json.dumps(input_data)
@@ -27,12 +28,6 @@ def send_post(params, input_data, request_id=None):
 
 
 def get_all_req_for(view_id):
-    """
-    233170_MyView - axapta_andreev
-    233172_MyView - axapta_dev_andreev
-    233173_MyView - bs_andreev
-    233175_MyView - bs_dev_andreev
-    """
     params = {
         "OPERATION_NAME": "GET_REQUESTS",
         "TECHNICIAN_KEY": api_key,
@@ -70,6 +65,26 @@ def get_req_info(req_id):
 
     return response_data
 
+def send_note(req_id, note):
+    params = {
+        "TECHNICIAN_KEY": api_key,
+        "format": "json",
+        "OPERATION_NAME": "ADD_NOTE",
+    }
+    input_data = {
+        "operation": {
+            "details": {
+                "notes":{
+                    "note": {
+                        "ispublic": "false",
+                        "notestext": note
+                    }
+                }
+            }
+        }
+    }
+    response_data = send_post(params, input_data, request_id=req_id, isNote=True)
+    return response_data
 
 class RequestUpdater:
     def __init__(self):
@@ -80,6 +95,52 @@ class RequestUpdater:
             "OPERATION_NAME": "EDIT_REQUEST",
         }
 
+    def change_bot_exec(self, req_id, comment):
+        input_data = {
+            "operation": {
+                "details": {
+                    "BOT EXEC": comment
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
+
+
+    def change_category(self, req_id, new_category):
+        input_data = {
+            "operation": {
+                "details": {
+                    "category": new_category
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
+
+
+    def change_subcategory(self, req_id, new_category, new_subcategory):
+        input_data = {
+            "operation": {
+                "details": {
+                    "category": new_category,
+                    "SUBCATEGORY": new_subcategory
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
+
+
+    def change_group(self, req_id, new_group, technician):
+        input_data = {
+            "operation": {
+                "details": {
+                    "group": new_group,
+                    "TECHNICIAN": technician
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
+
+
     def change_technician(self, req_id, technician):
         input_data = {
             "operation": {
@@ -89,6 +150,7 @@ class RequestUpdater:
             }
         }
         return send_post(self.params, input_data, req_id)
+
 
     def change_status(self, req_id, status):
         input_data = {
