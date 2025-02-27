@@ -7,5 +7,5 @@
 3. В корневой директории запустить прокси-сервер с CORS (гугловская шляпа) командой `python app.py` (он поднимется на localhost:5000)
 ![image](https://github.com/user-attachments/assets/ed45dad1-8688-4f74-ae5e-251e714feb13)
 
-4. ![image](https://github.com/user-attachments/assets/d06a052f-c034-4f00-9cd4-c30eaf98e6ad)
-Выглядит вот так (не уверен что буду перескринивать)
+4.Выглядит вот так (не уверен что буду перескринивать)
+ ![image](https://github.com/user-attachments/assets/d06a052f-c034-4f00-9cd4-c30eaf98e6ad)
