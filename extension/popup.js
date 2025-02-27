@@ -34,14 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Получение информации о заявке
   document.getElementById('getRequestInfo').addEventListener('click', () => {
     if (!woID) {
-      return showError('requestInfoResult', 'woID не найден в URL.');
+      woID = document.getElementById('reqId').value;
     }
 
     fetch(`http://localhost:5000/get_request_info?req_id=${woID}`)
       .then(response => response.json())
       .then(data => {
-        document.getElementById('requestInfoResult').innerHTML =
-          formatJson(data);
+        document.getElementById('requestInfoResult').innerHTML = formatJson(data);
       })
       .catch(error => showError('requestInfoResult', error));
   });
@@ -95,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  
+
   function handleClick(buttonId, url1, url2, category, subcategory, group) {
     document.getElementById(buttonId).addEventListener('click', () => {
       if (!woID) {

@@ -7,6 +7,7 @@
     .container {
       padding: 25px;
       width: 650px;
+      height: 90%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #1a1a1a;
       border-radius: 12px;
@@ -148,6 +149,27 @@
       border-color: #3498db;
     }
 
+    .quick-actions-grid-adm {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .quick-actions-grid-adm button {
+      margin: 0;
+      padding: 10px 15px;
+      font-size: 13px;
+      letter-spacing: normal;
+      background: linear-gradient(135deg, #1310be, #4a0add);
+      border: 1px solid #404040;
+    }
+
+    .quick-actions-grid-adm button:hover {
+      background: linear-gradient(135deg, #454545, #383838);
+      border-color: #3498db;
+    }
+
   </style>
 </head>
 
@@ -161,9 +183,17 @@
         <button id="set1cerp">1C ERP</button>
         <button id="set1ccrm">1C CRM</button>
         <button id="set1cdiadoc">1C Диадок</button>
-        <button id="set1cbilling">1C Биллинг></button>
+        <button id="set1cbilling">1C Биллинг</button>
         <button id="set1cdoc">1С Док-от</button>
         <button id="set1czup">1С ЗУП</button>
+      </div>
+      <div class="quick-actions-grid-adm">
+        <button id="uvolnenie">Увольнение</button>
+        <button id="adminuslugi">Адм. Услуги</button>
+        <button id="set1cdiadoc">1C Диадок</button>
+        <button id="sharov">Владимир</button>
+        <button id="lyashkov">Химки</button>
+        <button id="telephony">Телефония</button>
       </div>
     </div>
 
