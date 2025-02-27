@@ -170,6 +170,27 @@
       border-color: #3498db;
     }
 
+    .quick-actions-grid-analytics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 10px 0;
+    }
+
+    .quick-actions-grid-analytics button {
+      margin: 0;
+      padding: 10px 15px;
+      font-size: 13px;
+      letter-spacing: normal;
+      background: linear-gradient(135deg, #7a0b30, #d807d8);
+      border: 1px solid #404040;
+    }
+
+    .quick-actions-grid-analytics button:hover {
+      background: linear-gradient(135deg, #454545, #383838);
+      border-color: #3498db;
+    }
+
   </style>
 </head>
 
@@ -194,6 +215,14 @@
         <button id="sharov">Владимир</button>
         <button id="lyashkov">Химки</button>
         <button id="telephony">Телефония</button>
+      </div>
+      <div class="quick-actions-grid-analytics">
+        <button id="cscar">Цезарь кар</button>
+        <button id="csmart">Цезарь смарт</button>
+        <button id="cshome">Цезарь Хоум</button>
+        <button id="cslogistic">Логистик</button>
+        <button id="activationport">Портал активации</button>
+        <button id="alertport">Портал тревог</button>
       </div>
     </div>
 
