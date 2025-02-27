@@ -1,7 +1,7 @@
 import json
 import requests
 
-api_key = "F0EEED2D-254E-4202-A539-BD8860461417"
+api_key = ""
 url = "http://192.168.91.235/sdpapi/request"
 
 # 411755
