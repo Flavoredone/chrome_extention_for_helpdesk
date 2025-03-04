@@ -9,4 +9,7 @@
 
 4. Выглядит сама морда вот так:
 
-![image](https://github.com/user-attachments/assets/833ad079-3fd6-452b-9f8f-d3e9e1eda275)
+![image](https://github.com/user-attachments/assets/3435b7c7-daa1-4179-a942-b7968017e931)
+
+![image](https://github.com/user-attachments/assets/250691fa-e9c1-4df2-b812-727c3c9fed53)
+
