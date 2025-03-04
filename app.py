@@ -98,6 +98,8 @@ def handle_request(data, action):
         result = updater.change_subcategory(data['req_id'], data['category'], data['subcategory'])
     elif action == 'change_group' and data.get('group'):
         result = updater.change_group(data['req_id'], data['group'], data['specialist'])
+    elif action == 'change_priority_and_request_type':
+        result = updater.change_priority_and_request_type(data['req_id'], data['priority'], data['request_type'])
     else:
         return jsonify({"error": "Invalid parameters"}), 400
 
@@ -109,6 +111,24 @@ def handle_request(data, action):
 @app.route('/set1cbilling1', methods=['POST'])
 @app.route('/set1cdoc1', methods=['POST'])
 @app.route('/set1czup1', methods=['POST'])
+@app.route('/setuvolnenie1', methods=['POST'])
+@app.route('/setgurushkin1', methods=['POST'])
+@app.route('/setborisenkov1', methods=['POST'])
+@app.route('/setsharov1', methods=['POST'])
+@app.route('/setlyashkov1', methods=['POST'])
+@app.route('/settelephony1', methods=['POST'])
+@app.route('/setcscar1', methods=['POST'])
+@app.route('/setcsmart1', methods=['POST'])
+@app.route('/setcshome1', methods=['POST'])
+@app.route('/setcslogistic1', methods=['POST'])
+@app.route('/setactivationport1', methods=['POST'])
+@app.route('/setalertport1', methods=['POST'])
+@app.route('/setaxapta1', methods=['POST'])
+@app.route('/setsecurity1', methods=['POST'])
+@app.route('/setdezh1', methods=['POST'])
+@app.route('/setoppauto1', methods=['POST'])
+@app.route('/setoppndv1', methods=['POST'])
+@app.route('/setmacroscop1', methods=['POST'])
 def handle_set_subcategory():
     data = request.json
     return handle_request(data, 'change_subcategory')
@@ -119,9 +139,39 @@ def handle_set_subcategory():
 @app.route('/set1cbilling2', methods=['POST'])
 @app.route('/set1cdoc2', methods=['POST'])
 @app.route('/set1czup2', methods=['POST'])
+@app.route('/setuvolnenie2', methods=['POST'])
+@app.route('/setgurushkin2', methods=['POST'])
+@app.route('/setborisenkov2', methods=['POST'])
+@app.route('/setsharov2', methods=['POST'])
+@app.route('/setlyashkov2', methods=['POST'])
+@app.route('/settelephony2', methods=['POST'])
+@app.route('/setcscar2', methods=['POST'])
+@app.route('/setcsmart2', methods=['POST'])
+@app.route('/setcshome2', methods=['POST'])
+@app.route('/setcslogistic2', methods=['POST'])
+@app.route('/setactivationport2', methods=['POST'])
+@app.route('/setalertport2', methods=['POST'])
+@app.route('/setaxapta2', methods=['POST'])
+@app.route('/setsecurity2', methods=['POST'])
+@app.route('/setdezh2', methods=['POST'])
+@app.route('/setoppauto2', methods=['POST'])
+@app.route('/setoppndv2', methods=['POST'])
+@app.route('/setmacroscop2', methods=['POST'])
 def handle_set_group():
     data = request.json
     return handle_request(data, 'change_group')
+
+
+
+@app.route('/setgurushkin3', methods=['POST'])
+@app.route('/setborisenkov3', methods=['POST'])
+@app.route('/setsharov3', methods=['POST'])
+@app.route('/setlyashkov3', methods=['POST'])
+@app.route('/settelephony3', methods=['POST'])
+@app.route('/setdezh3', methods=['POST'])
+def habndle_change_priority_and_request_type():
+    data = request.json
+    return handle_request(data, 'change_priority_and_request_type')
 
 
 

@@ -161,3 +161,14 @@ class RequestUpdater:
             }
         }
         return send_post(self.params, input_data, req_id)
+
+    def change_priority_and_request_type(self, req_id, priority, request_type):
+        input_data = {
+            "operation": {
+                "details": {
+                    "PRIORITY": priority,
+                    "REQUESTTYPE": request_type
+                }
+            }
+        }
+        return send_post(self.params, input_data, req_id)
